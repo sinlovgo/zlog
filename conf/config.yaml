@@ -1,0 +1,21 @@
+zap:
+  AtomicLevel: -1 # DebugLevel:-1 InfoLevel:0 WarnLevel:1 ErrorLevel:2
+  FieldsAuto: false # is use auto Fields key set
+  Fields:
+    Key: key
+    Val: val
+  Development: true # is open Open file and line number
+  Encoding: console # output format, only use console or json, default is console
+  rotate:
+    Filename: log/zlog.log # Log file path
+    MaxSize: 16 # Maximum size of each log file, Unit: M
+    MaxBackups: 10 # How many backups are saved in the log file
+    MaxAge: 7 # How many days can the file be keep, Unit: day
+    Compress: true # need compress
+  EncoderConfig:
+    TimeKey: time
+    LevelKey: level
+    NameKey: logger
+    CallerKey: caller
+    MessageKey: msg
+    StacktraceKey: stacktrace
