@@ -12,7 +12,7 @@
 
 ## depends
 
-in go mod project
+in go mod project, last version is v1.1.0
 
 ```bash
 # before above global settings
