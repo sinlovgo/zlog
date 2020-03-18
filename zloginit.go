@@ -2,8 +2,12 @@ package zlog
 
 import (
 	"github.com/spf13/viper"
+	"go.uber.org/zap"
 	"path/filepath"
 )
+
+var Wrapper *zap.Logger
+var Sugared *zap.SugaredLogger
 
 //	init path use type yaml
 //	if path is empty

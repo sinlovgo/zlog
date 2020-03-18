@@ -131,6 +131,7 @@ type LoggerGlobal interface {
 	Sync() error
 }
 
+// Deprecated
 // newLog new log
 func newLogger(configPath string, log *zap.Logger, sugar *zap.SugaredLogger) LoggerGlobal {
 	return &logger{
@@ -140,78 +141,94 @@ func newLogger(configPath string, log *zap.Logger, sugar *zap.SugaredLogger) Log
 	}
 }
 
+// Deprecated
 // Debug uses fmt.Sprint to construct and log a message.
 func Debug(args ...interface{}) {
 	Logger.Debug(args)
 }
 
+// Deprecated
 // Info uses fmt.Sprint to construct and log a message.
 func Info(args ...interface{}) {
 	Logger.Info(args)
 }
 
+// Deprecated
 // Warn uses fmt.Sprint to construct and log a message.
 func Warn(args ...interface{}) {
 	Logger.Warn(args)
 }
 
+// Deprecated
 // Error uses fmt.Sprint to construct and log a message.
 func Error(args ...interface{}) {
 	Logger.Error(args)
 }
 
+// Deprecated
 // DPanic uses fmt.Sprint to construct and log a message. In development, the
 // logger then panics. (See zapcore.DPanicLevel for details.)
 func DPanic(args ...interface{}) {
 	Logger.DPanic(args)
 }
 
+// Deprecated
 // Panic uses fmt.Sprint to construct and log a message, then panics.
 func Panic(args ...interface{}) {
 	Logger.Panic(args)
 }
 
+// Deprecated
 // Fatal uses fmt.Sprint to construct and log a message, then calls os.Exit.
 func Fatal(args ...interface{}) {
 	Logger.Fatal(args)
 }
 
+// Deprecated
 // Debugf uses fmt.Sprintf to log a templated message.
 func Debugf(format string, args ...interface{}) {
-	Logger.Debugf(format, args...)
+	Sugared.Debugf(format, args)
+	//Logger.Debugf(format, args...)
 }
 
+// Deprecated
 // Infof uses fmt.Sprintf to log a templated message.
 func Infof(format string, args ...interface{}) {
 	Logger.Infof(format, args...)
 }
 
+// Deprecated
 // Warnf uses fmt.Sprintf to log a templated message.
 func Warnf(template string, args ...interface{}) {
 	Logger.Warnf(template, args)
 }
 
+// Deprecated
 // Errorf uses fmt.Sprintf to log a templated message.
 func Errorf(template string, args ...interface{}) {
 	Logger.Errorf(template, args)
 }
 
+// Deprecated
 // DPanicf uses fmt.Sprintf to log a templated message. In development, the
 // logger then panics. (See zapcore.DPanicLevel for details.)
 func DPanicf(template string, args ...interface{}) {
 	Logger.DPanicf(template, args)
 }
 
+// Deprecated
 // Panicf uses fmt.Sprintf to log a templated message, then panics.
 func Panicf(template string, args ...interface{}) {
 	Logger.Panicf(template, args)
 }
 
+// Deprecated
 // Fatalf uses fmt.Sprintf to log a templated message, then calls os.Exit.
 func Fatalf(template string, args ...interface{}) {
 	Logger.Fatalf(template, args)
 }
 
+// Deprecated
 // Debugw logs a message with some additional context. The variadic key-value
 // pairs are treated as they are in With.
 //
@@ -221,24 +238,28 @@ func Debugw(msg string, keysAndValues ...interface{}) {
 	Logger.Debugw(msg, keysAndValues)
 }
 
+// Deprecated
 // Infow logs a message with some additional context. The variadic key-value
 // pairs are treated as they are in With.
 func Infow(msg string, keysAndValues ...interface{}) {
 	Logger.Infow(msg, keysAndValues)
 }
 
+// Deprecated
 // Warnw logs a message with some additional context. The variadic key-value
 // pairs are treated as they are in With.
 func Warnw(msg string, keysAndValues ...interface{}) {
 	Logger.Warnw(msg, keysAndValues)
 }
 
+// Deprecated
 // Errorw logs a message with some additional context. The variadic key-value
 // pairs are treated as they are in With.
 func Errorw(msg string, keysAndValues ...interface{}) {
 	Logger.Errorw(msg, keysAndValues)
 }
 
+// Deprecated
 // DPanicw logs a message with some additional context. In development, the
 // logger then panics. (See DPanicLevel for details.) The variadic key-value
 // pairs are treated as they are in With.
@@ -246,18 +267,21 @@ func DPanicw(msg string, keysAndValues ...interface{}) {
 	Logger.DPanicw(msg, keysAndValues)
 }
 
+// Deprecated
 // Panicw logs a message with some additional context, then panics. The
 // variadic key-value pairs are treated as they are in With.
 func Panicw(msg string, keysAndValues ...interface{}) {
 	Logger.Panicw(msg, keysAndValues)
 }
 
+// Deprecated
 // Fatalw logs a message with some additional context, then calls os.Exit. The
 // variadic key-value pairs are treated as they are in With.
 func Fatalw(msg string, keysAndValues ...interface{}) {
 	Logger.Fatalw(msg, keysAndValues)
 }
 
+// Deprecated
 // Sync flushes any buffered log entries.
 func Sync() error {
 	return Logger.Sync()

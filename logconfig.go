@@ -42,7 +42,7 @@ func (z *ZapLogger) initLog() error {
 		zapcore.NewMultiWriteSyncer(
 			zapcore.AddSync(os.Stdout),
 			zapcore.AddSync(&rotateLogger),
-		),           // Print to console and file
+		), // Print to console and file
 		atomicLevel, // Log level
 	)
 	var filed zap.Option
@@ -66,8 +66,9 @@ func (z *ZapLogger) initLog() error {
 			logZap = zap.New(core)
 		}
 	}
-
 	logZap.Debug("zlog init success")
+	Wrapper = logZap
+	Sugared = logZap.Sugar()
 	z.Log = logZap
 	z.Sugar = logZap.Sugar()
 	Logger = newLogger(z.ConfigPath, z.Log, z.Sugar)

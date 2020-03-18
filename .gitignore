@@ -1,3 +1,7 @@
+### custom
+
+*.log
+
 ### build temple
 build/
 dist/
